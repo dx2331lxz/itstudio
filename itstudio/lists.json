@@ -1,0 +1,30 @@
+﻿[
+  {
+    "name": "Notion",
+    "path": "C:\\Users\\LMark\\AppData\\Local\\Programs\\Notion\\Notion.exe"
+  },
+  {
+    "name": "PicGo",
+    "path": "D:\\PicGo\\PicGo.exe"
+  },
+  {
+    "name": "Proteus 8 Professional",
+    "path": "D:\\Proteus 8 Professional\\BIN\\PDS.EXE"
+  },
+  {
+    "name": "r2modman",
+    "path": "D:\\r2\\r2modman\\r2modman.exe"
+  },
+  {
+    "name": "TCP&UDP测试工具",
+    "path": "D:\\TCP&UDP测试工具\\TCPUDPDbg.exe"
+  },
+  {
+    "name": "Visual Studio 2022",
+    "path": "D:\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\devenv.exe"
+  },
+  {
+    "name": "Coodesker",
+    "path": "D:\\Coodesker\\coodesker-x64.exe"
+  }
+]
