@@ -89,6 +89,8 @@ namespace Itstudiowindow
                                 newKey.SetValue("fDisableAutoReconnect", 0, RegistryValueKind.DWord);
                                 newKey.SetValue("fEnableRemoteFXAdvancedRemoteApp", 1, RegistryValueKind.DWord);
                                 newKey.SetValue("UseUniversalPrinterDriverFirst", 3, RegistryValueKind.DWord);
+                                newKey.SetValue("MaxIdleTime", 0, RegistryValueKind.DWord);
+                                newKey.SetValue("MaxConnectionTime", 0, RegistryValueKind.DWord);
                                 Console.WriteLine("已添加注册表键和值。");
                             }
                             else
@@ -393,6 +395,9 @@ namespace Itstudiowindow
                         key.DeleteValue("fDisableAutoReconnect");
                         key.DeleteValue("fEnableRemoteFXAdvancedRemoteApp");
                         key.DeleteValue("UseUniversalPrinterDriverFirst");
+                        key.DeleteValue("MaxIdleTime");
+                        key.DeleteValue("MaxConnectionTime");
+
                         Console.WriteLine("已删除注册表值。");
                     }
                     else

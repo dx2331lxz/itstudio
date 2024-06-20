@@ -20,39 +20,45 @@ namespace Itstudiowindow
         /// </summary>
         static HttpListener httpobj;
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            //Logger("Port 14915 is already open in Windows Firewall.");
-            // 确保只有一个Itstudiowindow.exe在运行
-            Process[] processes = Process.GetProcessesByName("Itstudiowindow");
-            if (processes.Length > 1)
+            // 接收参数
+            string port;
+            if (args.Length < 1)
             {
-                // 关闭除当前进程以外的其他进程
-                foreach (var process in processes)
-                {
-                    if (process.Id != Process.GetCurrentProcess().Id)
-                    {
-                        try
-                        {
-                            // 关闭进程
-                            process.Kill();
-                        }
-                        catch (Exception ex)
-                        {
-                        }
-                    }
-                }
+                port = "14915";
             }
-
+            else
+            {
+                port = args[0];
+            }
             httpobj = new HttpListener();
-            httpobj.Prefixes.Add("http://127.0.0.1:14915/");
+            httpobj.Prefixes.Add($"http://127.0.0.1:{port}/");
             httpobj.Start();
             httpobj.BeginGetContext(Result, null);
-            
+
+
+
+            //Task.Run(() =>
+            //{
+                
+            //    while (true)
+            //    {
+            //        //Process[] processes = Process.GetProcessesByName("rdp2tcp");
+            //        //if (processes.Length == 0)
+            //        //{
+            //        //    System.Diagnostics.Process.Start("main.exe");
+            //        //}
+                    
+            //        Thread.Sleep(1000);
+            //    }
+            //});
+            System.Diagnostics.Process.Start("main.exe");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new 远程应用管理());
             
+
 
 
         }
@@ -133,26 +139,6 @@ namespace Itstudiowindow
                 else if (request.Url.AbsolutePath == "/start/")
                 {
                     // 打开当前目录下的remoteApp_win.exe
-                    Process[] processes = Process.GetProcessesByName("remoteApp_win");
-                    if (processes.Length > 0)
-                    {
-                        foreach (var process in processes)
-                        {
-                            try
-                            {
-                                // 关闭进程
-                                process.Kill();
-
-                            }
-                            catch (Exception ex)
-                            {
-                            }
-                        }
-                    }
-                    else
-                    {
-
-                    }
                     System.Diagnostics.Process.Start("remoteApp_win.exe");
                     responseString = "启动成功";
                 }
